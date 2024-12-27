@@ -1,0 +1,10 @@
+#!/bin/bash
+
+GUEST_NAME="$1"
+OPERATION="$2"
+
+if [ "$OPERATION" = "prepare" ]; then
+    CGROUP_PATH="/sys/fs/cgroup/machine/qemu-${GUEST_NAME}.libvirt-qemu"
+    mkdir -p "$CGROUP_PATH"
+    chmod -R 777 "$CGROUP_PATH"
+fi
